@@ -6,6 +6,7 @@ const userSchema=new mongoose.Schema({
     age:{type:Number,required:true},
     phoneNumber:{type:String,required:true,unique:true},
     password:{type:String,required:true},
+    role:{type:'string',default:'user'}
 })
 const userModel=new mongoose.model('userModel',userSchema);
 export default userModel

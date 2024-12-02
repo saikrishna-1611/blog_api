@@ -15,11 +15,9 @@ try{
  if(!decoded){
     return res.status(400).json({status:'fail',message:"Invalid Token"})
  }
- const {_id}=decoded
- const user=await userModel.findById(_id);
- req.user=user
- console.log(req.user)
- next()
+ req.user={_id: decoded._id,role:decoded.role };
+ next();
+ console.log(req.user);
 }
 catch(error){
     return res.status(500).json({status:'fail',message:"something went wrong"})
